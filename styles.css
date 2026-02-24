@@ -160,6 +160,20 @@ body {
     background: linear-gradient(135deg, #ff0f84, #8b31e5, #ff0f84);
 }
 
+.btn-highlight-static {
+    background: linear-gradient(135deg, #ff007a, #7928ca, #ff007a);
+    background-size: 200% auto;
+    color: white;
+    font-weight: 700;
+    border: none;
+    animation: gradientFlow 3s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.6), 0 0 30px rgba(121, 40, 202, 0.4);
+}
+
+.btn-highlight-static:hover {
+    background: linear-gradient(135deg, #ff0f84, #8b31e5, #ff0f84);
+}
+
 @keyframes neonPulse {
     0% {
         transform: scale(1);
