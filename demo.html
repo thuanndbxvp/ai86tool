@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio Pro - Demo Kết Quả</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .demo-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .script-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        /* Custom Scrollbar for Script Area */
+        .script-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .script-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .script-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .script-scene {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .script-scene:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(168, 85, 247, 0.5);
+            /* Purple accent on hover */
+            transform: translateX(5px);
+        }
+
+        .scene-number {
+            font-size: 0.8rem;
+            color: #a855f7;
+            /* Purple */
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .scene-text {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow-bg"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="gradient-text font-heading">AI Studio Pro</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="index.html#features">Tính Năng</a>
+            <a href="index.html#pricing">Bảng Giá</a>
+            <a href="guide.html">Hướng Dẫn</a>
+            <a href="demo.html" class="active">Demo Mẫu</a>
+        </nav>
+        <a href="https://zalo.me/g/mtjofo625" target="_blank" class="btn-primary small">Tham Gia Nhóm Zalo</a>
+    </header>
+
+    <main class="demo-container">
+        <div class="text-center">
+            <h1 class="font-heading gradient-text" style="font-size: 3rem; margin-bottom: 15px;">Thành Phẩm Thực Tế</h1>
+            <p class="font-body" style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Dưới đây là kết quả của sự kết hợp hoàn hảo giữa <strong>Công cụ Phân Tách Kịch Bản Ai Whisper</strong>
+                và <strong>Đồng Bộ Hóa (Audio-Video Sync)</strong>.
+                Hệ thống tự động cắt audio ngắt nghỉ theo câu, sau đó ráp chính xác từng bức ảnh/clip tương ứng khớp
+                100% với lời thoại mà không cần chỉnh sửa thủ công.
+            </p>
+        </div>
+
+        <div class="demo-layout">
+            <!-- Left Column: Video -->
+            <div class="glass-panel" style="padding: 20px;">
+                <h3 class="font-heading" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span
+                        style="display:inline-block; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444;"></span>
+                    Video Render Cuối Cùng
+                </h3>
+                <div class="video-wrapper">
+                    <!-- Google Drive Embed -->
+                    <iframe src="https://drive.google.com/file/d/1UN0mAZ0kb5kwERKR3p1hX_oi4XOiTCop/preview"
+                        allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Right Column: Script -->
+            <div class="glass-panel" style="padding: 20px;">
+                <h3 class="font-heading" style="margin-bottom: 15px; color: #a855f7;">Kịch Bản Gốc Phân Tách</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                    Mỗi phân cảnh dưới đây tương ứng với 1 file âm thanh (đã cắt tự động) và 1 hình ảnh/clip kết quả
+                    trong video.
+                </p>
+
+                <div class="script-container">
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 1</span>
+                        <div class="scene-text">There is a lie that the world whispers to you when you turn 60, 70, or
+                            80.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 2</span>
+                        <div class="scene-text">Can you hear it?</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 3</span>
+                        <div class="scene-text">It whispers: "Your time is up. You are fading.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 4</span>
+                        <div class="scene-text">Step back and let the young take over."</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 5</span>
+                        <div class="scene-text">We live in a culture that is obsessed with beginnings.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 6</span>
+                        <div class="scene-text">It worships the sunrise but fears the sunset. It worships speed, youth,
+                            and productivity.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 7</span>
+                        <div class="scene-text">And because of this, the world tells you a cruel story:</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 8</span>
+                        <div class="scene-text">It says that if you cannot run fast, you have no value. If you are not
+                            producing, you are perishing.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 9</span>
+                        <div class="scene-text">But I want you to listen to me very carefully today, because I am going
+                            to tell you the truth that society is too blind to see. God operates on a different clock.
+                        </div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 10</span>
+                        <div class="scene-text">While the world looks at your aging body and sees decline, God looks at
+                            your enduring spirit and sees a weapon being sharpened. You are not becoming weaker, my
+                            friend; you are becoming concentrated.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="brand">
+                <span class="gradient-text font-heading font-bold">AI Studio Pro</span>
+                <p>Công cụ Tối ưu Hóa Video Số 1</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Trang Chủ</a>
+                <a href="#">Điều khoản</a>
+                <a href="https://zalo.me/g/mtjofo625" target="_blank">Hỗ trợ</a>
+            </div>
+        </div>
+        <div class="copyright text-center" style="margin-top: 20px;">
+            <p>&copy; 2026 AI Studio Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
