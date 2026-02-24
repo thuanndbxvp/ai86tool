@@ -230,6 +230,37 @@ body {
     color: var(--text-main);
 }
 
+.navbar nav a.nav-highlight {
+    background: linear-gradient(135deg, #ff007a, #7928ca);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.4);
+    animation: neonPulseSmall 2s infinite;
+}
+
+.navbar nav a.nav-highlight:hover {
+    color: white;
+}
+
+@keyframes neonPulseSmall {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 0, 122, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(121, 40, 202, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 0, 122, 0.4);
+    }
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
