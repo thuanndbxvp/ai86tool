@@ -58,12 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const distance = countDownDate - now;
 
             if (distance < 0) {
-                clearInterval(timer);
-                daysEl.innerText = "00";
-                hoursEl.innerText = "00";
-                minutesEl.innerText = "00";
-                secondsEl.innerText = "00";
-                return;
+                // Reset to 7 days instead of stopping
+                countDownDate = now + (7 * 24 * 60 * 60 * 1000);
+                localStorage.setItem("saleEndTime", countDownDate);
             }
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
