@@ -146,6 +146,37 @@ body {
     background: linear-gradient(135deg, #7c3aed, var(--primary-light));
 }
 
+.btn-highlight {
+    background: linear-gradient(135deg, #ff007a, #7928ca, #ff007a);
+    background-size: 200% auto;
+    color: white;
+    font-weight: 700;
+    border: none;
+    animation: neonPulse 2s infinite, gradientFlow 3s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.6), 0 0 30px rgba(121, 40, 202, 0.4);
+}
+
+.btn-highlight:hover {
+    background: linear-gradient(135deg, #ff0f84, #8b31e5, #ff0f84);
+}
+
+@keyframes neonPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 0, 122, 0.6);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 0, 122, 0.8), 0 0 40px rgba(121, 40, 202, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 0, 122, 0.6);
+    }
+}
+
 .btn-secondary {
     background: var(--bg-glass);
     color: var(--text-main);
@@ -724,7 +755,10 @@ body {
 }
 
 @keyframes blinker {
-    50% { opacity: 0.8; transform: scale(0.95); }
+    50% {
+        opacity: 0.8;
+        transform: scale(0.95);
+    }
 }
 
 .pricing-header {
