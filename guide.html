@@ -87,7 +87,7 @@
     <header class="navbar">
         <div class="logo">
             <a href="index.html" style="text-decoration: none;">
-                <span class="gradient-text font-heading">AI Studio Pro</span>
+                <span class="gradient-text font-heading">Auto Sync Pro</span>
             </a>
         </div>
         <nav>
@@ -119,51 +119,12 @@
             </div>
 
             <div style="margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <a href="#giai-doan-chuan-bi" class="btn-primary" style="text-decoration: none;">Giai Đoạn Chuẩn Bị</a>
-                <a href="#van-hanh-app" class="btn-secondary" style="text-decoration: none;">Vận Hành App</a>
+                <a href="#advance-autosync" class="btn-primary" style="text-decoration: none;">🎬 Advance Autosync</a>
+                <a href="#visual-studio-pro" class="btn-secondary" style="text-decoration: none;">Visual Studio Pro</a>
             </div>
         </div>
 
-        <section id="giai-doan-chuan-bi" class="guide-section glass-panel" style="padding: 40px;">
-            <h2 class="font-heading">Giai Đoạn Chuẩn Bị</h2>
-
-            <div class="guide-box">
-                <h4 class="font-heading">1. Hướng dẫn lấy API Key Gemini (Dùng cho Phân Cảnh AI)</h4>
-                <ol>
-                    <li>Truy cập trang chủ <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI
-                            Studio</a>.</li>
-                    <li>Đăng nhập bằng tài khoản Google của bạn (Nên dùng Chrome).</li>
-                    <li>Nhấn vào nút màu xanh <b>"Create API key"</b>.</li>
-                    <li>Chọn một dự án hiện có hoặc nhấn <b>"Create API key in new project"</b> để tạo mới.</li>
-                    <li>Màn hình sẽ hiển thị chuỗi API Key. <b>Sao chép (Copy) toàn bộ mã này</b>.</li>
-                    <li>Mở công cụ Visual Studio Pro, chuyển sang <b>Tab 1 (Storyboard)</b>, dán mã vào khung cấu hình
-                        API bên trái và nhấn <b>"Kiểm tra & Lưu"</b>.</li>
-                </ol>
-            </div>
-
-            <div class="guide-box">
-                <h4 class="font-heading">2. Hướng dẫn lấy Cookie Whisk (Dùng cho Tạo Ảnh/Video)</h4>
-                <ol>
-                    <li>Mở trình duyệt (Chrome/Edge/Cốc Cốc), cài đặt tiện ích <b>Cookie Exporter</b> <a
-                            href="https://chromewebstore.google.com/detail/cookie-exporter/fhnmmidekmgocpjdceeffppcodigillk"
-                            target="_blank">TẠI ĐÂY</a>. Nhấn <b>"Thêm vào Chrome"</b>.</li>
-                    <li>Truy cập vào trang chủ của dự án Whisk tại <a href="https://labs.google/fx/tools/whisk/project"
-                            target="_blank">https://labs.google/fx/tools/whisk/project</a> và đảm bảo bạn <b>đã đăng
-                            nhập tài khoản Google (Gmail)</b>.</li>
-                    <li>Nhấn vào biểu tượng <b>Tiện ích (Mảnh ghép)</b> ở góc phải trên cùng trình duyệt, chọn mở
-                        <b>Cookie Exporter</b>.
-                    </li>
-                    <li>Tiện ích sẽ tự động quét và hiển thị Cookie. Bạn hãy nhấn nút <b>"Copy as JSON"</b> để sao chép
-                        chuẩn định dạng.</li>
-                    <li>Mở công cụ Visual Studio Pro, chuyển sang <b>Tab 2 (Whisk)</b>, dán toàn bộ đoạn mã vừa copy vào
-                        ô chữ nhật ghi <b>"Cookie (JSON)"</b> bên góc trái.</li>
-                    <li>Nhấn nút <b>"Kiểm tra & Lưu"</b>, nếu hệ thống báo thành công hoặc "SESSION VALID" là bạn đã có
-                        thể bắt đầu tạo ảnh!</li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="van-hanh-app" class="guide-section glass-panel" style="padding: 40px; margin-top: 30px;">
+        <section id="advance-autosync" class="guide-section glass-panel" style="padding: 40px;">
             <h2 class="font-heading">Hướng Dẫn Vận Hành App Chính</h2>
 
             <div class="guide-box"
@@ -216,12 +177,39 @@
             </div>
         </section>
 
-        <section class="guide-section glass-panel"
+        <section id="visual-studio-pro" class="guide-section glass-panel"
             style="padding: 40px; margin-top: 30px; border-color: rgba(99,102,241,0.3);">
             <h2 class="font-heading" style="color: #818cf8;">App Tặng Kèm — Visual Studio Pro (Whisk + 11Labs Pipeline)
             </h2>
             <p style="color: var(--text-muted); margin-bottom: 25px;">Bộ công cụ hỗ trợ tạo nguyên liệu tự động từ kịch
                 bản: tạo ảnh/video Whisk, lồng tiếng 11Labs. Tặng miễn phí kèm theo gói mua.</p>
+
+            <h3 class="font-heading" style="color: #fbbf24; margin-bottom: 20px;">Giai Đoạn Chuẩn Bị</h3>
+
+            <div class="guide-box" style="margin-bottom: 20px;">
+                <h4 class="font-heading">1. Lấy API Key Gemini (Tab Storyboard — Phân Cảnh AI)</h4>
+                <ol>
+                    <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.
+                    </li>
+                    <li>Đăng nhập Google &rarr; nhấn <b>"Create API key"</b> &rarr; sao chép toàn bộ mã.</li>
+                    <li>Mở Visual Studio Pro &rarr; Tab 1 (Storyboard) &rarr; dán vào khung API &rarr; nhấn <b>"Kiểm tra
+                            &amp; Lưu"</b>.</li>
+                </ol>
+            </div>
+
+            <div class="guide-box" style="margin-bottom: 30px;">
+                <h4 class="font-heading">2. Lấy Cookie Whisk (Tab Whisk — Tạo Ảnh/Video)</h4>
+                <ol>
+                    <li>Cài tiện ích <b>Cookie Exporter</b> <a
+                            href="https://chromewebstore.google.com/detail/cookie-exporter/fhnmmidekmgocpjdceeffppcodigillk"
+                            target="_blank">tại đây</a> trên Chrome/Edge/Cốc Cốc.</li>
+                    <li>Truy cập <a href="https://labs.google/fx/tools/whisk/project"
+                            target="_blank">labs.google/fx/tools/whisk</a> — đăng nhập Gmail.</li>
+                    <li>Mở Cookie Exporter &rarr; nhấn <b>"Copy as JSON"</b>.</li>
+                    <li>Mở Visual Studio Pro &rarr; Tab 2 (Whisk) &rarr; dán vào ô <b>"Cookie (JSON)"</b> &rarr; nhấn
+                        <b>"Kiểm tra &amp; Lưu"</b>.</li>
+                </ol>
+            </div>
 
             <h3 class="font-heading" style="color: #c084fc;">1. TAB STORYBOARD — PHÂN TÁCH KỊCH BẢN— TẠO PROMPT ẢNH</h3>
             <img src="images/1.png" alt="Hướng dẫn Tab Storyboard"
