@@ -164,9 +164,20 @@
         </section>
 
         <section id="van-hanh-app" class="guide-section glass-panel" style="padding: 40px; margin-top: 30px;">
-            <h2 class="font-heading">Hướng Dẫn Vận Hành App</h2>
+            <h2 class="font-heading">Hướng Dẫn Vận Hành App Chính</h2>
 
-            <div class="guide-box" style="border-color: #f59e0b; background: rgba(245, 158, 11, 0.1);">
+            <div class="guide-box"
+                style="border-color: #a855f7; background: rgba(168,85,247,0.12); margin-bottom: 30px;">
+                <h4 class="font-heading" style="color: #c084fc; font-size: 1.4rem;">🎬 Advance Audio-Video AutoSync</h4>
+                <p style="color: var(--text-muted); margin-top: 8px;">App cốt lõi — biến bộ nguyên liệu (Audio +
+                    Ảnh/Video + Kịch bản) thành video hoàn chỉnh chỉ với <strong>1 nút bấm duy nhất</strong>.</p>
+            </div>
+
+            <img src="images/6.png" alt="Advance Audio-Video AutoSync Interface"
+                style="width: 100%; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 0 30px rgba(168,85,247,0.4); border: 1px solid rgba(168,85,247,0.3);">
+
+            <div class="guide-box"
+                style="border-color: #f59e0b; background: rgba(245, 158, 11, 0.1); margin-bottom: 25px;">
                 <h4 class="font-heading" style="color: #f59e0b; display: flex; align-items: center; gap: 8px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -176,14 +187,34 @@
                     </svg>
                     Lưu ý Quan trọng
                 </h4>
-                <p style="color: var(--text-muted); margin-top: 10px; font-size: 0.95rem;">Đại đa số các <b>thông số kỹ
-                        thuật và cài đặt mặc định trên toàn bộ hệ thống (từ thông số AI, tốc độ, đến cắt/ghép video) đã
-                        được tối ưu hóa ở mức tốt nhất</b> để đảm bảo tỷ lệ thành công cao và chất lượng đầu ra đạt
-                    chuẩn. Khách hàng <b>chỉ nên điều chỉnh</b> các thông số chuyên sâu này khi thực sự am hiểu về AI và
-                    cấu trúc dữ liệu, nhằm tránh phát sinh lỗi không đáng có.</p>
+                <p style="color: var(--text-muted); margin-top: 10px; font-size: 0.95rem;">Các thông số kỹ thuật mặc
+                    định trên app đã được tối ưu hóa sẵn — <b>không cần chỉnh thay</b> khi mới dùng. Chỉ nạp đủ nguyên
+                    liệu và nhấn chạy.</p>
             </div>
 
-            <h3 class="font-heading" style="color: #c084fc;">1. TAB STORYBOARD - PHÂN TÁCH KỊCH BẢN</h3>
+            <h3 class="font-heading" style="color: #c084fc;">CÁCH SỬ DỤNG — MỘT MÀN HÌNH, MỘT NÚT BẤM</h3>
+            <ul>
+                <li><b>Bước 1 — Chọn File Audio:</b> Upload file âm thanh lồng tiếng đã chuẩn bị sẵn (xuất ra từ Tool
+                    TTS hoặc tự thu âm).</li>
+                <li><b>Bước 2 — Chọn File Kịch bản (.txt):</b> File kịch bản có mỗi câu / mỗi cảnh nằm trên 1 dòng
+                    riêng. <b>Số dòng phải khớp chính xác số ảnh/clip.</b></li>
+                <li><b>Bước 3 — Chọn Thư mục Ảnh / Video (đầu vào):</b> Thư mục chứa các cảnh nền. Mỗi ảnh/clip tương
+                    ứng với 1 dòng kịch bản.</li>
+                <li><b>Bước 4 — Chọn Thư mục Đầu ra:</b> Nơi lưu video thành phẩm sau khi app xử lý xong.</li>
+                <li><b>Bước 5 — Nhấn “Tạo Video”:</b> Một nút duy nhất — App tự động chia tách audio, tính toán thời
+                    lượng từng cảnh, điều chỉnh tốc độ (Speed/Trim/Loop) và xuất video hoàn chỉnh khớp âm thanh chính
+                    xác từng ms.</li>
+            </ul>
+        </section>
+
+        <section class="guide-section glass-panel"
+            style="padding: 40px; margin-top: 30px; border-color: rgba(99,102,241,0.3);">
+            <h2 class="font-heading" style="color: #818cf8;">App Tặng Kèm — Visual Studio Pro (Whisk + 11Labs Pipeline)
+            </h2>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Bộ công cụ hỗ trợ tạo nguyên liệu tự động từ kịch
+                bản: tạo ảnh/video Whisk, lồng tiếng 11Labs. Tặng miễn phí kèm theo gói mua.</p>
+
+            <h3 class="font-heading" style="color: #c084fc;">1. TAB STORYBOARD — PHÂN TÁCH KỊCH BẢN— TẠO PROMPT ẢNH</h3>
             <img src="images/1.png" alt="Hướng dẫn Tab Storyboard"
                 style="width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
             <ul>
@@ -234,49 +265,6 @@
                 </li>
             </ul>
         </section>
-
-        <section class="guide-section glass-panel" style="padding: 40px; margin-top: 30px;">
-            <h2 class="font-heading">Hướng Dẫn Vận Hành App Vệ Tinh: Script Audio Splitter</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Công cụ chuyên dụng xử lý âm thanh tự động bằng AI
-                Whisper và ghép nối đồng bộ video hàng loạt. App cung cấp 2 chế độ vận hành:</p>
-
-            <h3 class="font-heading" style="color: #10b981;">CÁCH 1: SỬ DỤNG TỪNG TÍNH NĂNG ĐỘC LẬP (THỦ CÔNG)</h3>
-            <img src="images/4.png" alt="Hướng dẫn Chia Tách Âm Thanh"
-                style="width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            <ul>
-                <li><b>Bước 1 - Chọn ngôn ngữ đầu vào:</b> Xác định ngôn ngữ của file âm thanh gốc cần tách để hệ thống
-                    phân tích chính xác nhất.</li>
-                <li><b>Bước 2 - Chia tách (Audio Splitter):</b> Nhập file âm thanh và <b>file kịch bản</b>. Hệ thống dò
-                    Khoảng Lặng (Silence) để cắt nhỏ file âm thanh và tự động xuất ra file <b>Metadata.json</b> chứa
-                    time-code (thời điểm ngắt nghỉ).</li>
-                <li><b>Bước 3 - Đồng Bộ (Video Sync):</b> Chuyển sang Tab Đồng Bộ. Nạp 3 nguyên liệu: (1) Thư mục
-                    Ảnh/Video gốc, (2) File Metadata.json vừa tạo, (3) File Audio gốc. Nhấn <b>"BẮT ĐẦU ĐỒNG BỘ"</b> để
-                    phần mềm tự ráp hình khớp tiếng.</li>
-            </ul>
-
-            <h3 class="font-heading" style="color: #ec4899;">CÁCH 2: GẶT ĐẬP LIÊN HOÀN (TỰ ĐỘNG 100%)</h3>
-            <img src="images/5.png" alt="Hướng dẫn Đồng Bộ Video và Audio Tự Động"
-                style="width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            <p style="color: var(--text-muted); margin-bottom: 15px;">Dành cho người muốn rảnh tay tuyệt đối. App sẽ tự
-                động gộp 2 bước: <i>vừa tách Audio xong là mang đi ghép Video luôn lập tức.</i></p>
-            <ul>
-                <li><b>Kích hoạt cơ chế:</b> Tick chọn vào ô <b>"Tự động Upload và ghép Video (Auto sync)"</b> trên giao
-                    diện Tab Chia tách Audio.</li>
-                <li><b>Chuẩn bị Đầu vào (Bắt buộc đủ 3 món):</b>
-                    <br>1. <b>File Audio gốc:</b> File âm thanh lồng tiếng toàn bộ (sản phẩm TTS xuất ra từ Tool
-                    11Labs).
-                    <br>2. <b>File Kịch bản tách phần:</b> Kịch bản <b>tải về từ công cụ 1 (Storyboard</b> bằng cách bấm
-                    "Xuất script (*.txt)"). Lưu ý: Mỗi phần kịch bản nằm trên 1 dòng riêng lẻ.
-                    <br>3. <b>Thư mục Ảnh/Video (Đầu vào của App Sync):</b> Chứa các cảnh nền. <b>Lưu ý cực kỳ quan
-                        trọng:</b> Số lượng ảnh/clip bắt buộc phải bằng chính xác số dòng (số phần) trong file kịch bản.
-                </li>
-                <li><b>Trải nghiệm phép màu:</b> Bấm chạy! Khi đó tệp <code>Metadata.json</code> sẽ được sinh ra ngầm và
-                    tự động chuyển giao. Tính năng đồng bộ sẽ tự kích hoạt: <b>Mỗi bức ảnh (hoặc clip) sẽ được tự động
-                        rải đều và khớp chính xác tuyệt đối với từng câu thoại tương ứng</b>. Nhậm nhi ly trà và chờ
-                    nhận cả rổ video thành phẩm.</li>
-            </ul>
-        </section>
-
     </main>
 
     <footer>
