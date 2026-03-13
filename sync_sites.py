@@ -9,6 +9,7 @@ DAT_DIR = os.path.join(MAIN_DIR, "Dat")
 DAI_DIR = os.path.join(MAIN_DIR, "Dai")
 
 FILES_TO_SYNC = ["index.html", "demo.html", "guide.html", "styles.css", "script.js"]
+FILES_BINARY = ["HDSD App đồng bộ_V4.4.pdf", "HD Phân cảnh_V4.4.pdf"]
 FOLDERS_TO_SYNC = ["images"]
 
 # Default values from main site
@@ -58,7 +59,14 @@ def sync_site(target_dir, remote_url, phone, zalo_group):
 
             with open(dst, "w", encoding="utf-8") as file:
                 file.write(content)
-    
+
+    # Copy binary files (PDF, etc.) without text processing
+    for f in FILES_BINARY:
+        src = os.path.join(MAIN_DIR, f)
+        dst = os.path.join(target_dir, f)
+        if os.path.exists(src):
+            shutil.copy2(src, dst)
+
     # Also copy app_screenshot.png
     if os.path.exists(os.path.join(MAIN_DIR, "app_screenshot.png")):
         shutil.copy2(os.path.join(MAIN_DIR, "app_screenshot.png"), target_dir)

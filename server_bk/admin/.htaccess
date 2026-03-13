@@ -1,0 +1,7 @@
+# Protect admin directory
+Options -Indexes
+
+# Require HTTPS (recommended)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
