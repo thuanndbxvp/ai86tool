@@ -683,9 +683,11 @@
             'pdf-phanccanh': 'panel-pdf-phanccanh'
         };
 
-        function switchTab(key) {
+        function switchTab(key, updateHash = true) {
             const card = document.querySelector(`.app-nav-card[data-tab="${key}"]`);
             const panel = document.getElementById(tabMap[key]);
+            if (!card || !panel) return;
+            
             const isAlreadyActive = card.classList.contains('active');
 
             // Deactivate all
@@ -695,29 +697,57 @@
             if (!isAlreadyActive) {
                 // Open
                 card.classList.add('active');
-                if (panel) panel.classList.add('active');
+                panel.classList.add('active');
                 
-                // Scroll
+                // Update URL for sharing
+                if (updateHash) {
+                    history.pushState(null, null, '#' + key);
+                }
+
+                // Scroll to content
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const scrollTarget = document.querySelector('.pdf-cards-grid').getBoundingClientRect().bottom + window.scrollY + 20;
                 window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+            } else if (updateHash) {
+                // If closing, remove hash
+                history.pushState(null, null, window.location.pathname + window.location.search);
             }
-            // else: closed (all inactive)
         }
 
-        // Handle anchor links from external pages
-        const hash = window.location.hash;
-        if (hash) {
-            const anchor = hash.replace('#','');
-            const mapping = {
-                'advance-autosync': 'autosync',
-                'tab-whisk':        'whisk',
-                'tab-elevenlabs':   'elevenlabs',
-                'pdf-dongbo':       'pdf-dongbo',
-                'pdf-phanccanh':    'pdf-phanccanh'
-            };
-            const target = mapping[anchor] || anchor;
-            if (tabMap[target]) switchTab(target);
-        }
+        // Handle anchor links from external pages or direct navigation
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.replace('#','');
+            if (hash) {
+                const mapping = {
+                    'advance-autosync': 'autosync',
+                    'tab-autosync':     'autosync',
+                    'tab-storyboard':   'storyboard',
+                    'tab-whisk':        'whisk',
+                    'tab-elevenlabs':   'elevenlabs',
+                    'pdf-dongbo':       'pdf-dongbo',
+                    'pdf-phancanh':     'pdf-phanccanh', // support both spellings
+                    'pdf-phan-canh':    'pdf-phanccanh'
+                };
+                const target = mapping[hash] || hash;
+                if (tabMap[target]) {
+                    // Small delay to ensure styles are loaded and scroll works
+                    setTimeout(() => switchTab(target, false), 100);
+                }
+            }
+        });
+
+        // Handle back/forward navigation
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.replace('#','');
+            if (hash) {
+                const target = hash; // simplify: assume hash matches tab key
+                if (tabMap[target]) switchTab(target, false);
+            } else {
+                // Clear all if no hash
+                document.querySelectorAll('.app-nav-card').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            }
+        });
 
         // (prep boxes are always visible — no accordion needed)
 
