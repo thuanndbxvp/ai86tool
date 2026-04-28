@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio Pro - Demo Kết Quả</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .demo-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .script-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        /* Custom Scrollbar for Script Area */
+        .script-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .script-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .script-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .script-scene {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .script-scene:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(168, 85, 247, 0.5);
+            /* Purple accent on hover */
+            transform: translateX(5px);
+        }
+
+        .scene-number {
+            font-size: 0.8rem;
+            color: #a855f7;
+            /* Purple */
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .scene-text {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow-bg"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span class="gradient-text font-heading">Auto Sync Pro</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="index.html#features">Tính Năng</a>
+            <a href="index.html#showcase">Ứng Dụng</a>
+            <a href="index.html#pricing">Bảng Giá</a>
+            <a href="guide.html">Hướng Dẫn</a>
+            <a href="demo.html" class="active">Demo kết quả</a>
+        </nav>
+        <a href="https://zalo.me/g/mtjofo625" target="_blank" class="btn-primary small">Tham Gia Nhóm Zalo</a>
+    </header>
+
+    <main class="demo-container">
+        <div class="text-center">
+            <h1 class="font-heading gradient-text" style="font-size: 3rem; margin-bottom: 15px;">Thành Phẩm Thực Tế</h1>
+            <p class="font-body" style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Đây là video demo kết quả sau khi chạy <strong><a href="guide.html#autosync" style="color:inherit; text-decoration:underline;">App Đồng Bộ Auto Sync</a></strong>.
+                App tự động đọc kịch bản theo từng dòng, co giãn/cắt/lặp ảnh hoặc clip để khớp chính xác với timeline
+                audio, sau đó xuất project CapCut gần như không cần căn tay.
+            </p>
+        </div>
+
+        <div class="demo-layout">
+            <!-- Left Column: Video -->
+            <div class="glass-panel" style="padding: 20px;">
+                <h3 class="font-heading" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <span
+                        style="display:inline-block; width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px #ef4444;"></span>
+                    Video Render Cuối Cùng
+                </h3>
+                <div class="video-wrapper">
+                    <video controls preload="metadata" playsinline>
+                        <source src="app moi/demo.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ phát video.
+                    </video>
+                </div>
+
+                <h3 class="font-heading" style="margin-top: 25px; margin-bottom: 15px; color: #a855f7;">Quy Trình Chạy
+                    App Đồng Bộ Mới</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; line-height: 1.6;">
+                    Dựa trên bộ nguyên liệu (audio + file kịch bản chia dòng + ảnh/clip), app sẽ tự tạo dự án CapCut,
+                    căn đúng từng đoạn hình theo câu thoại và tự xử lý các trường hợp lệch thời lượng.
+                    <br><br>
+                    <strong>Flow vận hành nhanh:</strong> Mở app → nạp thư mục Draft CapCut + thư mục nguyên liệu → bấm
+                    Đồng bộ/Chia Audio → xuất sang CapCut.
+                    <br><br>
+                    <strong>Kết quả:</strong> Timeline đã được căn gần hoàn chỉnh, giảm mạnh thời gian kéo tay từng
+                    cảnh khi dựng video YouTube.
+                </p>
+            </div>
+
+            <!-- Right Column: Script -->
+            <div class="glass-panel" style="padding: 20px;">
+                <h3 class="font-heading" style="margin-bottom: 15px; color: #a855f7;">Kịch Bản Gốc Phân Tách</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                    Mỗi phân cảnh dưới đây tương ứng với 1 file âm thanh (đã cắt tự động) và 1 hình ảnh/clip kết quả
+                    trong video.
+                </p>
+
+                <div class="script-container">
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 1</span>
+                        <div class="scene-text">“Một ngàn vạn, đi bẻ thẳng con trai tôi!”</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 2</span>
+                        <div class="scene-text">Kênh livestream vắng tanh như chùa Bà Đanh của tôi đột nhiên xuất hiện một quý phu nhân giàu có,</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 3</span>
+                        <div class="scene-text">ra giá trên trời để thuê tôi đi "câu dẫn" quý tử nhà bà ấy. Lý do đơn giản đến mức khó tin: Bà ấy nghi ngờ con trai mình bị "cong".</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 4</span>
+                        <div class="scene-text">“Vâng ạ, phú bà cứ yên tâm! Cháu sẽ đi làm ngay, đảm bảo trả lại cho cô một chàng trai thẳng tắp!”</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 5</span>
+                        <div class="scene-text">Vừa hăm hở nhận lời xong, tôi liền chết đứng khi phát hiện ra đối tượng mục tiêu – con trai bà ấy – lại chính là ông chủ của tôi!</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 6</span>
+                        <div class="scene-text">Cứu mạng, vậy thì kèo này tôi nên "xông lên" hay "quay xe" đây? Quay lại thời điểm trước đó một chút.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 7</span>
+                        <div class="scene-text">Tôi là một streamer thất bại toàn tập. Cày cuốc livestream cả tháng trời mà kênh chỉ lèo tèo vài mống người xem, chủ yếu chắc là bot chạy tự động.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 8</span>
+                        <div class="scene-text">Rõ ràng soi gương thấy mình cũng “nghiêng nước nghiêng thành”, vậy mà thực tế lại phũ phàng tát thẳng vào mặt tôi.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 9</span>
+                        <div class="scene-text">Sáng nay, nhìn con số hoa hồng dài dằng dặc của cô đồng nghiệp mới khoe, tôi ghen tị đến đỏ cả mắt. Người ta đếm tiền mỏi tay, còn tôi nhìn lại lương cơ bản ba cọc ba đồng mà muốn khóc tiếng Mán.</div>
+                    </div>
+
+                    <div class="script-scene">
+                        <span class="scene-number">Scene 10</span>
+                        <div class="scene-text">Đã thế, vận đen còn đeo bám không buông. Vì dịch bệnh, công ty cũ phá sản, tôi gia nhập đội quân thất nghiệp. Lang thang rải CV suốt hai tháng trời mà chẳng nơi nào nhận, trong khi khoản vay mua nhà thì tháng nào cũng réo gọi ầm ĩ. Không có tiền trả nợ thì chỉ có nước ra gầm cầu ở.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="brand">
+                <span class="gradient-text font-heading font-bold">AI Studio Pro</span>
+                <p>Công cụ Tối ưu Hóa Video Số 1</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Trang Chủ</a>
+                <a href="demo.html">Demo kết quả</a>
+                <a href="#">Điều khoản</a>
+                <a href="https://zalo.me/g/mtjofo625" target="_blank">Hỗ trợ</a>
+            </div>
+        </div>
+        <div class="copyright text-center" style="margin-top: 20px;">
+            <p>&copy; 2026 AI Studio Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

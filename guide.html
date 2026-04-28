@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Sử Dụng | AI Auto-Studio Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.1">
+    <style>
+        /* ── Layout ── */
+        .guide-wrap {
+            max-width: 960px;
+            margin: 110px auto 80px;
+            padding: 0 5%;
+        }
+        .guide-hero { text-align: center; margin-bottom: 48px; }
+        .guide-hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        .guide-hero p  { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* ── App card grid ── */
+        .nav-section-label {
+            text-align: center;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: .12em;
+            text-transform: uppercase; color: var(--text-muted);
+            margin: 0 0 14px;
+        }
+        .app-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .app-nav-card.main-wide { grid-column: 1 / -1; }
+        @media (max-width: 560px) {
+            .app-cards-grid { grid-template-columns: 1fr; }
+            .app-nav-card.main-wide { grid-column: auto; }
+        }
+        .pdf-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 560px) { .pdf-cards-grid { grid-template-columns: 1fr; } }
+
+        .app-nav-card {
+            position: relative;
+            border-radius: 18px;
+            padding: 24px 22px 20px;
+            cursor: pointer;
+            border: 1.5px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-align: left;
+            overflow: hidden;
+        }
+        .app-nav-card::before {
+            content: '';
+            position: absolute; inset: 0;
+            opacity: 0;
+            transition: opacity 0.22s;
+            border-radius: inherit;
+        }
+        .app-nav-card:hover { transform: translateY(-4px); }
+        .app-nav-card.active { border-color: var(--card-accent); box-shadow: 0 0 28px var(--card-glow); }
+        .app-nav-card.active::before { opacity: 1; }
+
+        /* per-card colours */
+        .anc-purple { --card-accent:#a855f7; --card-glow:rgba(168,85,247,0.3); }
+        .anc-purple::before { background: radial-gradient(circle at 20% 50%, rgba(168,85,247,0.18), transparent 70%); }
+        .anc-indigo { --card-accent:#818cf8; --card-glow:rgba(129,140,248,0.28); }
+        .anc-indigo::before { background: radial-gradient(circle at 20% 50%, rgba(129,140,248,0.16), transparent 70%); }
+        .anc-orange { --card-accent:#fb923c; --card-glow:rgba(251,146,60,0.28); }
+        .anc-orange::before { background: radial-gradient(circle at 20% 50%, rgba(251,146,60,0.16), transparent 70%); }
+        .anc-cyan   { --card-accent:#38bdf8; --card-glow:rgba(56,189,248,0.28); }
+        .anc-cyan::before   { background: radial-gradient(circle at 20% 50%, rgba(56,189,248,0.16), transparent 70%); }
+        .anc-red    { --card-accent:#ef4444; --card-glow:rgba(239,68,68,0.28); }
+        .anc-red::before    { background: radial-gradient(circle at 20% 50%, rgba(239,68,68,0.15), transparent 70%); }
+        .anc-violet { --card-accent:#a855f7; --card-glow:rgba(168,85,247,0.25); }
+        .anc-violet::before { background: radial-gradient(circle at 20% 50%, rgba(168,85,247,0.14), transparent 70%); }
+
+        .anc-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .anc-title { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
+        .anc-desc  { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+        .anc-badge {
+            position: absolute; top: 14px; right: 14px;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: .06em;
+            padding: 3px 9px; border-radius: 20px;
+            background: rgba(255,255,255,0.08); color: var(--text-muted);
+        }
+        .app-nav-card.active .anc-badge { background: var(--card-accent); color: #fff; }
+
+        /* PDF warning bar with toggle */
+        .pdf-warn-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35);
+            border-radius: 12px; padding: 12px 20px;
+            margin-bottom: 14px; font-size: 0.88rem; color: #fca5a5; font-weight: 700;
+            cursor: pointer; user-select: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .pdf-warn-bar:hover { background: rgba(239,68,68,0.18); }
+        .pdf-warn-bar:active { transform: scale(0.99); }
+        .pdf-toggle-icon { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1.2rem; font-family: initial; }
+        .pdf-section-open .pdf-toggle-icon { transform: rotate(180deg); }
+        .pdf-cards-grid { display: none; }
+        .pdf-section-open .pdf-cards-grid { display: grid; }
+
+        /* Active indicator chevron */
+        .anc-chevron {
+            display: none; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--card-accent);
+        }
+        .app-nav-card.active .anc-chevron { display: block; }
+
+        /* ── Tab panels ── */
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ── Flashcard step grid ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .step-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px 20px 18px;
+            transition: transform 0.18s, box-shadow 0.18s;
+            position: relative;
+        }
+        .step-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.35); }
+        .step-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 30px; height: 30px; border-radius: 50%;
+            font-size: 0.85rem; font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .step-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 7px; color: #fff; }
+        .step-card p  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
+        .step-card a  { color: inherit; font-weight: 600; }
+
+        /* colour variants */
+        .step-purple .step-num { background: rgba(168,85,247,0.25); color: #c084fc; }
+        .step-purple { border-color: rgba(168,85,247,0.2); }
+        .step-indigo .step-num { background: rgba(129,140,248,0.25); color: #a5b4fc; }
+        .step-indigo { border-color: rgba(129,140,248,0.2); }
+        .step-orange .step-num { background: rgba(251,146,60,0.25);  color: #fdba74; }
+        .step-orange { border-color: rgba(251,146,60,0.2); }
+        .step-cyan   .step-num { background: rgba(56,189,248,0.25);  color: #7dd3fc; }
+        .step-cyan   { border-color: rgba(56,189,248,0.2); }
+        .step-tip    .step-num { background: rgba(251,191,36,0.3);   color: #fcd34d; }
+        .step-tip    { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
+
+        /* ── Info / tip / warning banners ── */
+        .fc-banner {
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+            font-size: 0.9rem; line-height: 1.65;
+        }
+        .fc-banner .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+        .fc-banner b { color: #fff; }
+        .fc-tip  { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: #fcd34d; }
+        .fc-warn { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.3);  color: #fca5a5; }
+        .fc-info { background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); color: #7dd3fc; }
+        .fc-prep { background: rgba(129,140,248,0.1);border: 1px solid rgba(129,140,248,0.3);color: #a5b4fc; }
+
+        /* ── Section title inside panel ── */
+        .panel-title {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 6px;
+        }
+        .panel-title h2 {
+            font-size: 1.7rem; font-weight: 800; margin: 0;
+        }
+        .panel-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 26px; }
+
+        /* ── Prep box (with toggle) ── */
+        .prep-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+        }
+        .prep-header {
+            display: flex; align-items: center; justify-content: space-between;
+            cursor: pointer; user-select: none;
+        }
+        .prep-box-title {
+            font-size: 0.97rem; font-weight: 700;
+            color: #fff; display: flex; align-items: center; gap: 8px;
+        }
+        .prep-toggle-btn {
+            font-size: 0.78rem; font-weight: 700; color: var(--card-accent);
+            text-transform: uppercase; background: rgba(255,255,255,0.05);
+            padding: 4px 10px; border-radius: 6px; border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        .prep-box:hover .prep-toggle-btn { border-color: var(--card-accent); }
+        
+        .prep-content {
+            display: none;
+            margin-top: 15px;
+            font-size: 0.88rem; color: var(--text-muted); line-height: 1.75;
+            animation: fadeInDown 0.25s ease-out;
+        }
+        .prep-box.open .prep-content { display: block; }
+        .prep-box.open .prep-toggle-btn { background: var(--card-accent); color: #000; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .prep-content ol { padding-left: 18px; margin: 0; }
+        .prep-content li { margin-bottom: 8px; }
+        .prep-content a { color: var(--secondary); font-weight: 600; }
+        .prep-content code {
+            background: rgba(56,189,248,0.15); color: #7dd3fc;
+            padding: 2px 10px; border-radius: 6px;
+            font-size: 0.95rem; letter-spacing: 0.5px;
+        }
+
+        /* PDF Toggle Button */
+        .pdf-toggle-wrap { text-align: center; margin: 15px 0; }
+        .btn-pdf-view {
+            background: rgba(255,255,255,0.05); border: 1.5px solid var(--card-accent);
+            color: var(--card-accent); font-weight: 700; padding: 12px 28px;
+            border-radius: 50px; cursor: pointer; transition: all 0.2s;
+        }
+        .btn-pdf-view:hover { background: var(--card-accent); color: #000; }
+        .pdf-frame { display: none; }
+        .pdf-section.open .pdf-frame { display: block; }
+        .pdf-section.open .btn-pdf-view { background: rgba(255,255,255,0.1); color: #fff; border-color: transparent; }
+
+
+        /* ── Screenshot ── */
+        .screen-img {
+            width: 100%; border-radius: 12px;
+            margin: 18px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ── Copy key button ── */
+        .copy-key-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg,#0ea5e9,#38bdf8);
+            color: #0f172a; border: none; border-radius: 8px;
+            padding: 10px 22px; font-size: 0.93rem; font-weight: 700;
+            cursor: pointer; transition: opacity 0.2s;
+            margin-top: 12px;
+        }
+        .copy-key-btn:hover { opacity: 0.85; }
+
+        /* ── PDF section ── */
+        .pdf-frame {
+            width: 100%; height: 80vh;
+            border: none; border-radius: 12px;
+            background: #1e1e2e;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            margin-top: 18px;
+        }
+        .pdf-download-link {
+            font-size: 0.9rem; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-bg"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration:none;">
+                <span class="gradient-text font-heading">Auto Sync Pro</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Trang Chủ</a>
+            <a href="index.html#features">Tính Năng</a>
+            <a href="index.html#showcase">Ứng Dụng</a>
+            <a href="index.html#pricing">Bảng Giá</a>
+            <a href="guide.html" class="active">Hướng Dẫn</a>
+            <a href="demo.html">Demo kết quả</a>
+        </nav>
+        <a href="https://zalo.me/g/mtjofo625" target="_blank" class="btn-primary small">Tham Gia Nhóm Zalo</a>
+    </header>
+
+    <main class="guide-wrap">
+
+        <!-- Hero -->
+        <div class="guide-hero">
+            <h1 class="font-heading gradient-text">Tài Liệu Hướng Dẫn</h1>
+            <p>Chọn phần bạn cần bên dưới — mỗi bước được tóm gọn rõ ràng.</p>
+        </div>
+
+        <!-- ── App Cards Navigation ── -->
+
+        <div class="app-cards-grid">
+            <div class="app-nav-card anc-purple active main-wide" data-tab="autosync" onclick="switchTab('autosync')">
+                <span class="anc-badge">MAIN APP</span>
+                <span class="anc-icon">🎬</span>
+                <div class="anc-title">App Đồng Bộ</div>
+                <div class="anc-desc">Advance Audio-Video AutoSync — xuất video hoàn chỉnh với 1 nút bấm.</div>
+                <div class="anc-chevron"></div>
+            </div>
+            <div class="app-nav-card anc-cyan" data-tab="elevenlabs" onclick="switchTab('elevenlabs')">
+                <span class="anc-badge">🎁 AI86 TTS BOX</span>
+                <span class="anc-icon">🎙️</span>
+                <div class="anc-title">App TTS & Clone Voice</div>
+                <div class="anc-desc">Quà tặng mới: chạy trên máy, không cần API; bản tặng kèm hỗ trợ EN/JP/ZH.</div>
+                <div class="anc-chevron"></div>
+            </div>
+            <div class="app-nav-card anc-indigo" data-tab="storyboard" onclick="switchTab('storyboard')">
+                <span class="anc-badge">HỖ TRỢ</span>
+                <span class="anc-icon">🧩</span>
+                <div class="anc-title">Phân Cảnh AI</div>
+                <div class="anc-desc">Tách kịch bản thành từng dòng/cảnh để đưa thẳng sang luồng đồng bộ.</div>
+                <div class="anc-chevron"></div>
+            </div>
+        </div>
+
+        <div class="fc-banner fc-info" style="margin-bottom: 18px; border: 1.5px solid rgba(56,189,248,0.45);">
+            <span class="icon">🎬</span>
+            <div>
+                <b style="display:block; margin-bottom:6px;">Playlist hướng dẫn App Đồng Bộ</b>
+                <a href="https://www.youtube.com/watch?v=keNMCcHdLKI&list=PLg4WykTKAcjtcFDV3vnjfZN_Aqld0q29I&index=4" target="_blank" style="color:#7dd3fc; font-weight:700; text-decoration:underline;">▶ Xem danh sách video hướng dẫn đầy đủ</a>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  PANEL 1 — APP ĐỒNG BỘ                 -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="tab-panel active glass-panel" id="panel-autosync" style="padding:36px;">
+            <div class="panel-title">
+                <span style="font-size:2rem;">🎬</span>
+                <h2 class="font-heading" style="color:#c084fc;">App Đồng Bộ AV Sync V3.5 — Khớp Hình Theo Kịch Bản</h2>
+            </div>
+            <p class="panel-subtitle">Điểm mạnh lớn nhất của app là tự căn ảnh/clip theo đúng từng đoạn thoại trong kịch bản, xử lý dứt điểm công đoạn kéo tay timeline trên CapCut.</p>
+
+            <div class="fc-banner fc-warn">
+                <span class="icon">⚠️</span>
+                <div>Khi làm video YouTube, phần tốn thời gian nhất là căn từng ảnh/clip khớp audio. AV Sync V3.5 tự động hóa toàn bộ bước này để bạn tập trung vào nội dung.</div>
+            </div>
+
+            <img src="app moi/1.png" alt="Giao diện chính App Đồng Bộ AV Sync" class="screen-img">
+
+            <div class="steps-grid">
+                <div class="step-card step-purple">
+                    <div class="step-num">1</div>
+                    <h4>Mở app và chọn tab Đồng bộ</h4>
+                    <p>Khởi chạy app, vào giao diện đồng bộ Audio-Video để bắt đầu quy trình tự căn timeline.</p>
+                </div>
+                <div class="step-card step-purple">
+                    <div class="step-num">2</div>
+                    <h4>Nạp Draft CapCut + thư mục nguyên liệu</h4>
+                    <p>Chọn thư mục CapCut Drafts và thư mục chứa audio + script + ảnh/clip. Có thể dùng chế độ import nhanh toàn bộ 1 lần.</p>
+                </div>
+                <div class="step-card step-purple">
+                    <div class="step-num">3</div>
+                    <h4>Bấm Đồng bộ và chờ app xử lý</h4>
+                    <p>App tự phân tích thoại theo script, co giãn/cắt/lặp media để khớp chuẩn từng đoạn thời lượng.</p>
+                </div>
+                <div class="step-card step-purple">
+                    <div class="step-num">4</div>
+                    <h4>Mở CapCut và nhận dự án đã căn sẵn</h4>
+                    <p>Sau xử lý, app tự tạo project mới trong CapCut với các phân đoạn hình-âm đã khớp, giảm mạnh thời gian hậu kỳ.</p>
+                </div>
+            </div>
+
+            <img src="app moi/2.png" alt="Nạp Draft CapCut và nguyên liệu" class="screen-img">
+            <img src="app moi/3.png" alt="Quá trình xử lý đồng bộ" class="screen-img">
+            <img src="app moi/4.png" alt="Kết quả đồng bộ trong CapCut" class="screen-img">
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  PANEL 2 — STORYBOARD                  -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="tab-panel glass-panel" id="panel-storyboard" style="padding:36px;">
+            <div class="panel-title">
+                <span style="font-size:2rem;">🧩</span>
+                <h2 class="font-heading" style="color:#a5b4fc;">Tab Storyboard — Phân Tách Kịch Bản & Tạo Prompt Ảnh</h2>
+            </div>
+            <p class="panel-subtitle">Công cụ giúp tách kịch bản thành từng cảnh rõ ràng theo dòng để nạp đúng chuẩn vào App Đồng Bộ, giảm lỗi lệch cảnh và lệch audio.</p>
+
+            <div class="prep-box anc-indigo">
+                <div class="prep-header" onclick="this.parentElement.classList.toggle('open')">
+                    <div class="prep-box-title">🔑 Chuẩn bị — Lấy API Key Gemini</div>
+                    <span class="prep-toggle-btn">Xem hướng dẫn</span>
+                </div>
+                <div class="prep-content">
+                    <ol>
+                        <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</li>
+                        <li>Đăng nhập Google → nhấn <b>"Create API key"</b> → sao chép mã.</li>
+                        <li>Sau khi có API, bấm nút <b>Cấu hình API</b> trên App và nhập vào, chọn model <b>Gemini 3 pro hoặc flash</b> rồi bấm Kiểm tra, sau đó Lưu lại.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="fc-banner fc-info" style="margin-top: 0; margin-bottom: 25px; border: 2px solid #818cf8; background: linear-gradient(90deg, rgba(129,140,248,0.2) 0%, rgba(168,85,247,0.2) 100%); color: #fff; box-shadow: 0 0 20px rgba(129,140,248,0.3); animation: pulse-glow 2s infinite alternate;">
+                <span class="icon" style="font-size: 1.5rem; filter: drop-shadow(0 0 5px #fff);">🚀</span>
+                <div style="font-size: 1.05rem; font-weight: 600;">
+                    <span style="color: #fda4af; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Khuyên dùng:</span>
+                    Dùng App Phân cảnh chính thức tại đây:
+                    <a href="https://aistudio.google.com/apps/9abadf1d-6ab4-4191-aad4-f0dd807ee5ac" target="_blank" style="display: inline-block; margin-left: 5px; background: #818cf8; color: #000; padding: 2px 12px; border-radius: 6px; text-decoration: none; font-weight: 800; transition: all 0.3s; box-shadow: 0 4px 12px rgba(129,140,248,0.4);">Truy cập ngay ↗</a>
+                </div>
+            </div>
+
+            <p class="panel-subtitle" style="margin-top: -8px; margin-bottom: 22px;">
+                Cần xem chi tiết thao tác? Mở file PDF tại đây:
+                <a href="HD Phân cảnh_V4.4.pdf" target="_blank"><b>📄 HDSD Tool Phân Cảnh</b></a>
+            </p>
+
+            <style>
+                @keyframes pulse-glow {
+                    0% { box-shadow: 0 0 10px rgba(129,140,248,0.2); transform: scale(1); }
+                    100% { box-shadow: 0 0 25px rgba(168,85,247,0.5); transform: scale(1.01); }
+                }
+            </style>
+
+            <img src="app moi/7.png" alt="Giao diện Tab Storyboard" class="screen-img">
+
+            <div class="steps-grid">
+                <div class="step-card step-indigo">
+                    <div class="step-num">1</div>
+                    <h4>Nhập Kịch bản</h4>
+                    <p>Upload file .txt hoặc paste toàn bộ kịch bản vào ô văn bản lớn — mỗi phần sẽ tương ứng 1 ảnh/clip.</p>
+                </div>
+                <div class="step-card step-indigo">
+                    <div class="step-num">2</div>
+                    <h4>Tuỳ chỉnh Phong cách</h4>
+                    <p>Chọn Chủ đề (Anime, Cinematic...), Style Prompts, Tỷ lệ khung hình và Ngôn ngữ Đầu ra.</p>
+                </div>
+                <div class="step-card step-indigo">
+                    <div class="step-num">3</div>
+                    <h4>Tạo Phân cảnh</h4>
+                    <p>Bấm <b>"Bắt đầu phân tích &amp; Chia dòng"</b> — AI cắt lớp kịch bản thành Prompt sinh ảnh chi tiết.</p>
+                </div>
+                <div class="step-card step-indigo">
+                    <div class="step-num">4</div>
+                    <h4>Tải File Kịch bản</h4>
+                    <p>Sau khi phân cảnh xong, tải file <b>.txt</b> và <b>.xlsx</b> bằng các nút ở góc trên bên phải.</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  PANEL 4 — 11LABS                      -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="tab-panel glass-panel" id="panel-elevenlabs" style="padding:36px;">
+            <div class="panel-title">
+                <span style="font-size:2rem;">🎙️</span>
+                <h2 class="font-heading" style="color:#7dd3fc;">AI86 TTS Box — TTS & Clone Voice Trên Máy</h2>
+            </div>
+            <p class="panel-subtitle">App tặng kèm khi mua App Đồng Bộ mới: chạy local trên máy, không cần API, máy có GPU sẽ tạo voice rất nhanh.</p>
+
+            <div class="fc-banner fc-info" style="margin-top: 0; margin-bottom: 25px; border: 2px solid #38bdf8; background: rgba(56,189,248,0.15); color: #fff; box-shadow: 0 0 15px rgba(56,189,248,0.3);">
+                <span class="icon" style="font-size: 1.5rem;">🎁</span>
+                <div style="font-size: 1rem; line-height: 1.6;">
+                    <b style="color: #7dd3fc; display: block; margin-bottom: 5px;">QUÀ TẶNG MỚI KHI MUA APP ĐỒNG BỘ:</b>
+                    AI86 TTS Box hỗ trợ tiếng Anh, Nhật, Trung ở bản tặng kèm. Bản thương mại hỗ trợ thêm tiếng Việt,
+                    Hàn và một số ngôn ngữ khác.
+                </div>
+            </div>
+
+            <div class="prep-box anc-cyan open">
+                <div class="prep-header" onclick="this.parentElement.classList.toggle('open')">
+                    <div class="prep-box-title">⚙️ Điểm mạnh chính của AI86 TTS Box</div>
+                    <span class="prep-toggle-btn">Xem nhanh</span>
+                </div>
+                <div class="prep-content">
+                    <ol>
+                        <li>Chạy trực tiếp trên máy tính, không cần nhập API key.</li>
+                        <li>Tạo voice và clone voice tốc độ cao khi có GPU.</li>
+                        <li>Kết hợp trực tiếp vào pipeline làm nội dung cùng App Đồng Bộ.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="prep-box anc-cyan open">
+                <div class="prep-header" onclick="this.parentElement.classList.toggle('open')">
+                    <div class="prep-box-title">🎬 Video hướng dẫn trọn bộ</div>
+                    <span class="prep-toggle-btn">Mở link</span>
+                </div>
+                <div class="prep-content">
+                    <p>Xem toàn bộ hướng dẫn sử dụng AI86 TTS Box + quy trình vận hành tại đây:</p>
+                    <p><a href="https://www.youtube.com/watch?v=RYA14E0W5N4&list=PLg4WykTKAcjtcFDV3vnjfZN_Aqld0q29I" target="_blank"><b>▶ Mở playlist hướng dẫn đầy đủ</b></a></p>
+                </div>
+            </div>
+
+            <img src="app moi/6.png" alt="Giao diện AI86 TTS Box" class="screen-img">
+
+            <div class="steps-grid">
+                <div class="step-card step-cyan">
+                    <div class="step-num">1</div>
+                    <h4>Chuẩn bị kịch bản</h4>
+                    <p>Nhập nội dung thoại cần tạo voice theo từng đoạn để dễ đồng bộ về sau.</p>
+                </div>
+                <div class="step-card step-cyan">
+                    <div class="step-num">2</div>
+                    <h4>Chọn ngôn ngữ phù hợp</h4>
+                    <p>Bản tặng kèm: EN/JP/ZH. Nếu cần tiếng Việt, Hàn và thêm ngôn ngữ khác, dùng bản thương mại.</p>
+                </div>
+                <div class="step-card step-cyan">
+                    <div class="step-num">3</div>
+                    <h4>Tạo voice / clone voice</h4>
+                    <p>Chạy trực tiếp trên máy để xuất audio nhanh, đặc biệt tối ưu khi máy có GPU.</p>
+                </div>
+                <div class="step-card step-cyan">
+                    <div class="step-num">4</div>
+                    <h4>Đưa vào App Đồng Bộ</h4>
+                    <p>Lấy audio đã tạo và đưa vào quy trình Auto Sync để tự căn timeline trong CapCut.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="brand">
+                <span class="gradient-text font-heading font-bold">Auto Sync Pro</span>
+                <p>Công cụ Đồng Bộ Hình Tiếng Số 1</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Trang Chủ</a>
+                <a href="demo.html">Demo kết quả</a>
+                <a href="#">Điều khoản</a>
+                <a href="https://zalo.me/g/mtjofo625" target="_blank">Hỗ trợ</a>
+            </div>
+        </div>
+        <div class="copyright text-center" style="margin-top:20px;">
+            <p>&copy; 2026 AI Studio Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ── Tab switching ──
+        const tabMap = {
+            'autosync':      'panel-autosync',
+            'storyboard':    'panel-storyboard',
+            'elevenlabs':    'panel-elevenlabs'
+        };
+
+        function switchTab(key, updateHash = true) {
+            const card = document.querySelector(`.app-nav-card[data-tab="${key}"]`);
+            const panel = document.getElementById(tabMap[key]);
+            if (!card || !panel) return;
+            
+            const isAlreadyActive = card.classList.contains('active');
+
+            // Deactivate all
+            document.querySelectorAll('.app-nav-card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+            if (!isAlreadyActive) {
+                // Open
+                card.classList.add('active');
+                panel.classList.add('active');
+                
+                // Update URL for sharing
+                if (updateHash) {
+                    history.pushState(null, null, '#' + key);
+                }
+
+                // Scroll to content
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (updateHash) {
+                // If closing, remove hash
+                history.pushState(null, null, window.location.pathname + window.location.search);
+            }
+        }
+
+        // Handle anchor links from external pages or direct navigation
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.replace('#','');
+            if (hash) {
+                const mapping = {
+                    'advance-autosync': 'autosync',
+                    'tab-autosync':     'autosync',
+                    'tab-storyboard':   'storyboard',
+                    'tab-elevenlabs':   'elevenlabs'
+                };
+                const target = mapping[hash] || hash;
+                if (tabMap[target]) {
+                    // Small delay to ensure styles are loaded and scroll works
+                    setTimeout(() => switchTab(target, false), 100);
+                }
+            }
+        });
+
+        // Handle back/forward navigation
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.replace('#','');
+            if (hash) {
+                const target = hash; // simplify: assume hash matches tab key
+                if (tabMap[target]) switchTab(target, false);
+            } else {
+                // Clear all if no hash
+                document.querySelectorAll('.app-nav-card').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            }
+        });
+
+        // (prep boxes are always visible — no accordion needed)
+
+        // Không cần hàm copy API key cho AI86 TTS Box vì app chạy local không dùng API.
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+App đồng bộ có tính năng chính là khớp hình ảnh theo từng đoạn kịch bản tương ứng. Khi làm video youtube, chắc hẳn mọi người đều gặp vấn đề là khi ghép hình ảnh vào âm thanh trên Capcut sẽ phải ngồi căn chỉnh từng ảnh/clip cho khớp với đoạn âm thanh trong đoạn đó, và đây là công đoạn mất nhiều thời gian nhất. App đồng bộ AV Sync V3.5-with Capcut sẽ giải quyết dứt điểm vấn đề này. 
+Cách sử dụng là:
+1. Đưa kịch bản vào app phân cảnh của chúng tôi, chọn số cảnh muốn chia từ kịch bản đó và phong cách hình ảnh muốn sử dụng như là người que, ghibli, sơn dầu....
+2. Sau khi chia phân cảnh xong, app Phân cảnh sẽ cho ra file Kịch bản mới ở đó có chia theo từng dòng cho mỗi cảnh và file list prompt tạo ảnh/video.
+3. Người dùng mang các file này đi tạo voice và tạo ảnh/video, như vậy ta sẽ có 1 file Audio duy nhất và 1 số ảnh/video, sau đó mang tất cả nguyên liệu này vào App Đồng bộ và bấm Đồng bộ là xong.
+4. App đồng bộ sẽ tự tạo 1 Dự án mới trong Capcut, và tự co giãn ảnh/clip sao cho khớp với đúng đoạn kịch bản mà đã tạo ra hình ảnh/clip đó, mà không cần chỉnh tay nữa.
+
+Quy trình làm việc như sau:
+Mở app, ảnh 1
+Nhập vào thư mục Draft Capcut và thư mục Nguyên liệu, ảnh 2
+Bấm Đồng bộ và chờ kết quả, ảnh 3
+Mở Capcut sẽ thấy kết quả căn đoạn Audio/Videod đã hoàn thành, ảnh 4.
+Video kết quả có sub từng đoạn, demo.mp4
